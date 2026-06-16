@@ -65,12 +65,10 @@ python src/plot_results.py     # writes the figures
 
 To explore, change `CO2_PRICES` in `run_scenarios.py` or any value in the `Config` block.
 
-## What I'd do next
+## Limitations and future work
+This is a single-building model with one weather year and perfect foresight, so the results illustrate mechanisms rather than precise forecasts.
+- **Flat electricity tariff.** no time-of-use pricing. This is the reason storage is never economic; adding a day/night tariff would make a battery worthwhile.
+- **Linear heat-pump cost.** a real heat pump has a large fixed installation cost. Capturing that (an install-or-not decision) turns the problem mixed-integer and gives a more realistic adoption pattern.
+- **Static technology costs and a single weather year** running several years would test how robust the sizing is.
 
-- **Add time-of-use electricity pricing.** This is the change that would make storage economically interesting — right now the flat tariff is the reason the battery stays at zero.
-- **Model the heat pump's fixed installation cost.** A real heat pump has a large one-off cost regardless of size; capturing that properly turns this into a mixed-integer problem (install-or-not), which would make the adoption pattern more realistic.
-- **Run several weather years** instead of one, to check how sensitive the sizing is.
-
-## Notes
-
-Single building, one weather year, perfect foresight, static technology costs — so the numbers are meant to show *mechanisms*, not to be a precise forecast. Data from Renewables.ninja and Open Power System Data; heat-pump COP relation from Staffell et al., *Energy & Environmental Science* (2012). Originally developed as a coursework project at the Chair of Energy Systems and Energy Economics, RUB.
+Data from Renewables.ninja and Open Power System Data; heat-pump COP relation from Staffell et al., *Energy & Environmental Science* (2012). Originally developed as a coursework project at the Chair of Energy Systems and Energy Economics, RUB.
