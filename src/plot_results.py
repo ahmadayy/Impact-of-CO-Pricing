@@ -42,13 +42,6 @@ ax.plot(df.co2_price, df.heat_pump_share_pct, "s--", color="#DD8452", lw=2, labe
 ax.set(title="Renewable & Heat-Pump Shares vs. CO₂ Price", xlabel="CO₂ Price (€/ton)", ylabel="Share (%)"); ax.legend()
 save(fig, "04_shares.png")
 
-fig, ax = plt.subplots(figsize=(7, 4.3)); xi = np.arange(len(bars)); w = 0.38
-ax.bar(xi - w/2, bars.battery_charge_kwh, w, label="Charge", color="#4C72B0")
-ax.bar(xi + w/2, bars.battery_discharge_kwh, w, label="Discharge", color="#DD8452")
-ax.set_xticks(xi); ax.set_xticklabels(bars.co2_price.astype(str))
-ax.set(title="Battery Utilisation by CO₂ Price", xlabel="CO₂ Price (€/ton)", ylabel="kWh/yr"); ax.legend()
-save(fig, "05_battery_utilisation.png")
-
 fig, ax = plt.subplots(figsize=(7, 4.3))
 ax.plot(df.co2_price, df.pv_capacity_kwp, "o-", label="PV (kWₚ)", lw=2)
 ax.plot(df.co2_price, df.battery_capacity_kwh, "s-", label="Battery (kWh)", lw=2)
